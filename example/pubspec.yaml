@@ -1,0 +1,16 @@
+name: leak_radar_pro_example
+description: Minimal runnable example for leak_radar_pro — leaks a controller, then shows the findings.
+publish_to: "none"
+environment:
+  sdk: ">=3.10.0 <4.0.0"
+  flutter: ">=3.38.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  leak_radar_pro:
+    path: ../
+dev_dependencies:
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
