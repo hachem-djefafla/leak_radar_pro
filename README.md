@@ -15,7 +15,7 @@ flavours are required.
 
 ```yaml
 dependencies:
-  leak_radar_pro: ^0.3.0
+  leak_radar_pro: ^0.1.0
 ```
 
 ---
@@ -193,15 +193,18 @@ which is one of:
 
 On a plain `flutter run` on a physical device neither is available, so only
 precise findings appear there. To exercise all detectors, run the example on
-**macOS or an emulator** (`flutter run -d macos`) and tap **"Run leak
-self-test"** on the home screen — it drives the leak scenario in the live app
-and prints a `LEAK-RADAR-SUMMARY` block (grouped by `LeakKind`, including empty
-kinds) to the console. The self-test is plain app code — no `integration_test`
-package and no `androidx.test` native dependency — so it also runs on a
-physical device (showing precise findings, with verbose logs explaining why the
-graph/growth paths are unavailable there).
+**a desktop target or an emulator/simulator** (`flutter run -d windows` /
+`-d macos` / `-d <emulator-id>`) and tap **"Run leak self-test"** on the home
+screen — it drives the leak scenario in the live app and prints a
+`LEAK-RADAR-SUMMARY` block (grouped by `LeakKind`, including empty kinds) to
+the console. The self-test is plain app code — no `integration_test` package
+and no `androidx.test` native dependency — so it also runs on a physical device
+(showing precise findings, with verbose logs explaining why the graph/growth
+paths are unavailable there).
 
-For offline analysis, feed an exported `.data` snapshot to the `leak_graph` CLI.
+For offline analysis, import an exported `.data` snapshot in the DevTools
+Memory tab above (a graph-diff companion CLI ships with the `flutter-leak-radar`
+tool suite).
 
 ---
 
@@ -238,9 +241,10 @@ closest root, and composable filters for exploring the object graph.
 
 ## Static analysis companion
 
-Add [`leak_radar_pro_lint`](https://pub.dev/packages/leak_radar_pro_lint) to catch
-undisposed controllers, uncancelled subscriptions, and similar patterns at
-edit time before they cause runtime leaks.
+The static-analysis companion plugin (`leak_radar_pro_lint`) flags undisposed
+controllers, uncancelled subscriptions, and similar patterns at edit time,
+before they cause runtime leaks. It ships with the `flutter-leak-radar` tool
+suite — watch the same repo for the `leak_radar_pro`-branded release.
 
 ---
 
