@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        # Windows exercises the no-chmod/no-POSIX paths (the leaking test skips there);
+        # Ubuntu exercises POSIX-only degradation paths.
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.38.0
+          cache: true
+
+      - name: Flutter doctor
+        run: flutter doctor -v
+
+      - name: Restore example dependencies (they must resolve for publish)
+        run: flutter pub get
+
+      - name: Verify formatting
+        run: dart format --set-exit-if-changed .
+
+      - name: Analyze
+        run: flutter analyze --fatal-infos
+
+      - name: Run tests
+        run: flutter test
+
+      - name: Example: pub get
+        run: flutter pub get
+        working-directory: example
+
+      - name: Example: analyze
+        run: flutter analyze --fatal-infos
+        working-directory: example
+
+  publish-check:
+    # Verifies the package is publishable without actually publishing.
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.38.0
+          cache: true
+
+      - name: Publish dry-run
+        run: dart pub publish --dry-run
