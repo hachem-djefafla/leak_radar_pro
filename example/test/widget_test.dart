@@ -8,14 +8,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:leak_radar_pro_example/main.dart';
 
 void main() {
-  testWidgets('app renders home screen with leak buttons while engine is idle', (
-    WidgetTester tester,
-  ) async {
-    await tester.pumpWidget(const LeakRadarApp());
-    await tester.pump();
+  testWidgets(
+    'app renders home screen with leak buttons while engine is idle',
+    (WidgetTester tester) async {
+      await tester.pumpWidget(const LeakRadarApp());
+      await tester.pump();
 
-    expect(find.text('leak_radar_pro example'), findsOneWidget);
-    expect(find.text('Open Leak Radar screen'), findsOneWidget);
-    expect(find.text('Create and abandon a controller'), findsOneWidget);
-  });
+      expect(find.text('leak_radar_pro example'), findsOneWidget);
+      expect(find.text('Open Leak Radar screen'), findsOneWidget);
+      expect(find.text('Create and abandon a controller'), findsOneWidget);
+    },
+  );
 }
