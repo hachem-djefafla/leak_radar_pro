@@ -41,11 +41,11 @@ jobs:
       - name: Run tests
         run: flutter test
 
-      - name: Example: pub get
+      - name: Example pub get
         run: flutter pub get
         working-directory: example
 
-      - name: Example: analyze
+      - name: Example analyze
         run: flutter analyze --fatal-infos
         working-directory: example
 
