@@ -1,4 +1,4 @@
-// packages/flutter_leak_radar/test/ui/leak_radar_view_test.dart
+// packages/leak_radar_pro/test/ui/leak_radar_view_test.dart
 import 'package:flutter/material.dart';
 import 'package:leak_radar_pro/leak_radar_pro.dart';
 import 'package:flutter_test/flutter_test.dart';

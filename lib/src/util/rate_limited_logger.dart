@@ -35,7 +35,7 @@ class RateLimitedLogger {
     // the run console where developers look — developer.log only reaches the
     // VM-service log stream (DevTools / the `flutter run` terminal).
     final String suffix = error != null ? ': $error' : '';
-    debugPrint('[flutter_leak_radar] $message$suffix');
+    debugPrint('[leak_radar_pro] $message$suffix');
     if (stackTrace != null) debugPrint('$stackTrace');
   }
 }

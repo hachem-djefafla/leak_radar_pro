@@ -43,7 +43,7 @@ final class VmHeapGraphSource implements HeapGraphSource {
     if (logger != null) {
       logger.log(message, level: LeakLogLevel.verbose);
     } else {
-      developer.log(message, name: 'flutter_leak_radar.heap_graph_source');
+      developer.log(message, name: 'leak_radar_pro.heap_graph_source');
     }
   }
 

@@ -9,12 +9,18 @@ final class AppPackageSet {
   Set<String> get names => _names;
 
   /// Package names excluded from auto-detection (SDK, framework, infra).
+  ///
+  /// `leak_radar_pro` covers this package's own vendored libraries
+  /// (ui_kit, leak_analysis, engine) — their types must never be classified
+  /// as app-owned packages in heap analysis.
   static const Set<String> sdkDenylist = {
     'flutter',
     'sky_engine',
     'leak_graph',
     'flutter_leak_radar',
+    'leak_radar_pro',
     'flutter_leak_radar_lint',
+    'leak_radar_pro_lint',
     'vm_service',
     'meta',
     'collection',

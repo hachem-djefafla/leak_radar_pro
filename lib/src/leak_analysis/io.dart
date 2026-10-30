@@ -1,7 +1,7 @@
-/// `dart:io`-backed helpers for `package:leak_graph`.
+/// `dart:io`-backed helpers for the vendored leak-analysis engine.
 ///
-/// The main `package:leak_graph/leak_graph.dart` barrel is pure Dart so it
-/// stays safe to import from web-hosted consumers (e.g. a DevTools
+/// The main `package:leak_radar_pro/leak_radar_pro.dart` library is pure Dart
+/// so it stays safe to import from web-hosted consumers (e.g. a DevTools
 /// extension). Anything that needs file-system access — such as detecting
 /// the app's own package names from a project directory, for feeding
 /// `AppPackageSet`/`OriginClassifier` an explicit config instead of relying on

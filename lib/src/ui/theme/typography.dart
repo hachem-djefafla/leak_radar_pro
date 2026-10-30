@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 
 import 'colors.dart';
 
-const String _fontPkg = 'flutter_leak_radar';
+const String _fontPkg = 'leak_radar_pro';
 
 TextStyle _font(
   String family, {

@@ -17,8 +17,8 @@ void main() {
   });
 
   test('ClassOrigin is re-exported from the package barrel', () {
-    // Compile-time proof the symbol comes from flutter_leak_radar, not
-    // leak_graph directly (the import above shows only flutter_leak_radar).
+    // Compile-time proof the symbol comes from leak_radar_pro, not
+    // leak_graph directly (the import above shows only leak_radar_pro).
     expect(ClassOrigin.values, contains(ClassOrigin.project));
   });
 
