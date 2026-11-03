@@ -1,8 +1,7 @@
 name: leak_radar_pro
 description: >-
-  On-device memory-leak detector for Flutter. Tracks per-class heap growth and
-  precise object retention, with a built-in inspector and DevTools extension.
-  Debug/profile only; complete no-op in release.
+  On-device memory-leak detector for Flutter: tracks per-class heap growth and
+  object retention, with an inspector and DevTools extension. No-op in release.
 version: 0.1.0
 repository: https://github.com/hachem-djefafla/leak_radar_pro
 issue_tracker: https://github.com/hachem-djefafla/leak_radar_pro/issues
