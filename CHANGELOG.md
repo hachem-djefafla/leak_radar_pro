@@ -3,6 +3,11 @@
 Package name: `leak_radar_pro`
 This package supersedes `leak_radar_pro`.
 
+## 0.1.1
+
+- Shortened the package description to satisfy pub.dev metadata limits
+  (no functional changes; 0.1.0 was skipped due to a republish).
+
 ## 0.1.0
 
 Initial release of the renamed package.
